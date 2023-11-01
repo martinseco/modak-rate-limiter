@@ -2,6 +2,17 @@
 
 This is the solution for the take-home test required as a part of the interview process for Modak.
 
+### Building and Running the Project
+
+Once you check out the code from GitHub, the project can be run using from the project source:
+```
+go mod tidy
+
+go build -o notifications src/api/main.go
+
+./notifications
+```
+
 ### Example Request/Responses
 
 #### Send notification for user
@@ -27,13 +38,12 @@ Response with HTTP Status: **202**
 }
 ```
 
-### Building and Running the Project
+### Sample Data
+The project builds with the following sample rate limiting rules in the DB:
+* **Status**: not more than 1 per 10 seconds for each recipient 
+* **News**: not more than 3 per 30 seconds for each recipient 
+* **Marketing**: not more than 4 per minute for each recipient
 
-Once you check out the code from GitHub, the project can be run using from the project source:
-```
-go mod tidy
+These can be edited in the applications/services.go file.
 
-go build -o notifications src/api/main.go
-
-./notifications
-```
+NOTE: _The endpoints to manage rules were left out of the project scope._
