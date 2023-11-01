@@ -8,6 +8,9 @@
 *.so
 *.dylib
 .idea/
+main
+notifications
+
 
 # Test binary, built with `go test -c`
 *.test
